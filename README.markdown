@@ -9,7 +9,7 @@ Here is my fork of @holman's dotfiles. Haven't added too much, just personalized
 Run this:
 
 ```sh
-git clone https://github.com/holman/dotfiles.git ~/.dotfiles
+git clone https://github.com/mikegb/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 script/bootstrap
 ```
