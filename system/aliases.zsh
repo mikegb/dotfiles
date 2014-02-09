@@ -8,3 +8,6 @@ then
   alias ll="gls -l --color"
   alias la='gls -A --color'
 fi
+
+alias openx='open *.xcodeproj'
+alias openxc='open *.xcworkspace'
