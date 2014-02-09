@@ -1,0 +1,64 @@
+export CLICOLOR=1 #enables color in the terminal bash shell export
+export GREP_OPTIONS='--color=auto'
+export GREP_COLOR='1;30;43'
+
+export TERM=xterm-256color #enables color for iTerm
+
+# export LSCOLORS=ExFxCxDxBxegedabagacad #sets up the color scheme for list export
+
+function prompt_cmd() {
+
+	CMD_STATUS="$?"
+	PSONE="\[\033[0;37m\][\!] " #HISTORY_NUM
+
+	if [[ $CMD_STATUS = "0" ]]; #If last command failed
+	then
+		PSONE+="\\[\\033[34m\\]"; 
+	else 
+		PSONE+="\\[\\033[31m\\]"; 
+	fi
+
+	PSONE+="[\u@\h] ";
+	
+	if [[ `pwd|wc -c|tr -d " "` > 18 ]];
+	then
+		PSONE+="\\[\\033[33m\\][\\W"; 
+	else
+		PSONE+="\\[\\033[33m\\][\\w";
+	fi
+
+	PSONE+="]\$\[\033[0m\] "
+
+	PS1=$PSONE;
+
+	echo -ne "\033]0;`hostname -s`:`pwd`\007"; #sets the title of the window
+
+}
+
+export PROMPT_COMMAND=prompt_cmd
+
+#When running two bash windows, allow both to write to the history, not one stomping the other
+shopt -s histappend
+
+#Remove duplicates from history
+export HISTCONTROL="ignoredups"
+export HISTIGNORE="&:ls:[bf]g:exit"
+
+#Keep multiline commands as one command in history
+shopt -s cmdhist
+
+alias ls='ls -G'
+alias ll='ls -hl'
+
+alias cdt='cd ~/Camtasia/trunk'
+alias opengo='open CamtasiaGo/CamtasiaGo.xcodeproj'
+alias openx='open *.xcodeproj'
+
+alias reload='source ~/.bash_profile'
+
+alias cd3='cd ~/TSCClass'
+alias openxc='open *.xcworkspace'
+
+alias gs='git status'
+alias glg='git log --decorate --graph --oneline --pretty=format:"%Cblue%h%d%Creset %ar %Cgreen%an%Creset %s"'
+alias glga='git log --decorate --graph --oneline --all --pretty=format:"%Cblue%h%d%Creset %ar %Cgreen%an%Creset %s"'
