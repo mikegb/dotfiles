@@ -11,6 +11,7 @@ Run this:
 ```sh
 git clone https://github.com/mikegb/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
+git submodule update --init --recursive
 script/bootstrap
 ```
 
