@@ -11,3 +11,5 @@ fi
 
 alias openx='open *.xcodeproj'
 alias openxc='open *.xcworkspace'
+
+export NACL_SDK='/Users/m.brown/Code/nacl_sdk'

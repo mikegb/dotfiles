@@ -12,6 +12,7 @@ alias glog="git log --decorate --graph --oneline --pretty=format:'%Cred%h%Creset
 alias gla='git log --all --oneline --decorate --graph'
 alias gp='git push origin HEAD'
 alias gd='git diff'
+alias gdt='git difftool'
 alias gc='git commit'
 alias gca='git commit -a'
 alias gco='git checkout'
@@ -23,6 +24,7 @@ alias gs='git status -sb' # upgrade your git if -sb breaks for you. it's fun.
 alias grm="git status | grep deleted | awk '{\$1=\$2=\"\"; print \$0}' | \
            perl -pe 's/^[ \t]*//' | sed 's/ /\\\\ /g' | xargs git rm"
 
+alias gclean="git branch --merged | grep -v '\*' | xargs -n 1 git branch -d"
 
 # Hub aliases
 alias hb="hub browse"
